@@ -1,6 +1,5 @@
 # Legacy extracted folders (nested duplicates)
 bookshelf-app-starter-project/
-BookshelfAPITestCollectionAndEnvironment/
 
 # Transitional duplicate folder (frontend already moved into bookshelf-api/frontend)
 bookshelf-app/
