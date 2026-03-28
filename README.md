@@ -2,14 +2,15 @@
 
 Proyek ini berisi backend API Bookshelf (Node.js/Hapi), frontend sederhana, dan aset pengujian Postman.
 
-## Struktur Folder (Final)
+## Struktur Folder 
 
 ```text
-Bookshelf-API/
-|- bookshelf-api/                 # Folder utama aplikasi (backend + frontend)
+Bookshelf-Management-REST-API/
+|- bookshelf-api/                                  # Folder utama aplikasi (backend + frontend)
 |  |- src/
 |  |- frontend/
-|- postman-tests/                 # Folder testing terpisah
+|  |- package.json
+|- BookshelfAPITestCollectionAndEnvironment/       # Collection + environment Postman
 |- README.md
 ```
 
@@ -22,8 +23,6 @@ Bookshelf-API/
 3. Jalankan server:
 	`npm run start`
 
-Default server berjalan di `http://localhost:9000`.
-
 ## Menjalankan Frontend
 
 1. Buka folder `bookshelf-api/frontend`.
@@ -31,11 +30,7 @@ Default server berjalan di `http://localhost:9000`.
 
 ## Pengujian API
 
-- Simpan/letakkan file collection dan environment Postman di folder `postman-tests`.
+- File collection dan environment Postman disimpan di folder `BookshelfAPITestCollectionAndEnvironment`.
 - Import kedua file tersebut ke Postman lalu jalankan request test.
 
-## Catatan Rapikan Struktur
 
-- Untuk push yang bersih ke GitHub, gunakan folder `bookshelf-api` sebagai folder utama aplikasi.
-- Folder `postman-tests` tetap terpisah khusus untuk pengujian.
-- Folder lama yang duplikat tetap di-ignore agar tidak ikut ter-push.
