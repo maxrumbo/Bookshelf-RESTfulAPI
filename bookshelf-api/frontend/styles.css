@@ -1,0 +1,234 @@
+:root {
+  --bg-top: #f8f0e3;
+  --bg-bottom: #dce9f0;
+  --surface: rgba(255, 255, 255, 0.78);
+  --surface-solid: #ffffff;
+  --stroke: rgba(11, 31, 45, 0.12);
+  --text: #0b1f2d;
+  --muted: #4c6677;
+  --accent: #ff7a32;
+  --accent-strong: #dc5b1a;
+  --success: #1f7a4f;
+  --danger: #b83b3b;
+  --shadow-soft: 0 16px 44px rgba(11, 31, 45, 0.12);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Sora", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 15%, rgba(255, 122, 50, 0.25) 0%, rgba(255, 122, 50, 0) 35%),
+    radial-gradient(circle at 85% 8%, rgba(31, 122, 79, 0.18) 0%, rgba(31, 122, 79, 0) 38%),
+    linear-gradient(165deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  padding: 32px 16px 48px;
+}
+
+.hero {
+  max-width: 1120px;
+  margin: 0 auto 20px;
+  background: linear-gradient(130deg, #102a3d, #264a60);
+  color: #fff7ed;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(24px, 5vw, 42px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  right: -110px;
+  top: -120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 122, 50, 0.55), rgba(255, 122, 50, 0));
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  letter-spacing: 0.01em;
+}
+
+.hero p {
+  margin: 10px 0 0;
+  color: rgba(255, 247, 237, 0.9);
+}
+
+.layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--stroke);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-soft);
+  animation: rise-in 0.5s ease both;
+}
+
+.panel:nth-child(1),
+.panel:nth-child(2) {
+  grid-column: span 6;
+}
+
+.panel:nth-child(3),
+.panel:nth-child(4) {
+  grid-column: span 6;
+}
+
+.panel h2 {
+  margin: 0 0 16px;
+  font-size: 1.08rem;
+}
+
+form {
+  display: grid;
+  gap: 12px;
+}
+
+form > div,
+#searchBook {
+  display: grid;
+  gap: 8px;
+}
+
+label {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  border: 1px solid rgba(11, 31, 45, 0.2);
+  border-radius: 12px;
+  padding: 11px 12px;
+  font: inherit;
+  background: var(--surface-solid);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(255, 122, 50, 0.2);
+  outline: none;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 14px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(0.97);
+}
+
+button:active {
+  transform: translateY(1px) scale(0.997);
+}
+
+#bookFormSubmit,
+#searchSubmit {
+  background: var(--accent);
+  color: #fff;
+}
+
+[data-testid="bookItem"] {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--stroke);
+  border-left: 6px solid #6a8ca3;
+  border-radius: var(--radius-md);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+
+#completeBookList [data-testid="bookItem"] {
+  border-left-color: var(--success);
+}
+
+[data-testid="bookItem"] h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+[data-testid="bookItem"] p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+[data-testid="bookItem"] > div {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+[data-testid="bookItem"] > div button:first-child {
+  background: var(--success);
+  color: #fff;
+}
+
+[data-testid="bookItem"] > div button:nth-child(2) {
+  background: var(--danger);
+  color: #fff;
+}
+
+[data-testid="bookItem"] > div button:nth-child(3) {
+  background: #245f95;
+  color: #fff;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .panel:nth-child(1),
+  .panel:nth-child(2),
+  .panel:nth-child(3),
+  .panel:nth-child(4) {
+    grid-column: 1 / -1;
+  }
+
+  .hero {
+    margin-bottom: 16px;
+  }
+}
