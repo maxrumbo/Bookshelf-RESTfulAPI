@@ -3,3 +3,4 @@ bookshelf-app-starter-project/
 
 # Transitional duplicate folder (frontend already moved into bookshelf-api/frontend)
 bookshelf-app/
+node_modules
